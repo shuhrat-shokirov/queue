@@ -26,7 +26,7 @@ func Test_list_add_one(t *testing.T) {
 		t.Error("after deletion one element size must be 0, got: ", l.len())
 	}
 }
-func Test_list_with_one_item(t *testing.T) {
+func Test_list_add_several(t *testing.T) {
 	l := list{}
 	l.addLast(0)
 	l.addLast(1)
