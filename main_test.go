@@ -18,9 +18,9 @@ func Test_list_add_one(t *testing.T) {
 	if l.First() != 0 {
 		t.Error("first in line, want:", 0, " got:", l.First())
 	}
-	/*if l.Last() != gotLast {
-		t.Error("last in line, want:", l.Last(), " got:", gotLast)
-	}*/
+	if l.Last() != 0 {
+		t.Error("last in line, want:", 0, " got:", l.Last())
+	}
 	l.queuing()
 	if l.len() != 0 {
 		t.Error("after deletion one element size must be 0, got: ", l.len())
