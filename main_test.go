@@ -15,14 +15,12 @@ func Test_list_add_one(t *testing.T) {
 	if l.len() != 1 {
 		t.Error("after adding one element size must be 1, got: ", l.len())
 	}
-	gotFirst := l.first
-	gotLast := l.last
-	if l.First() != gotFirst {
-		t.Error("first in line, want:", l.First(), " got:", gotFirst)
+	if l.First() != 0 {
+		t.Error("first in line, want:", 0, " got:", l.First())
 	}
-	if l.Last() != gotLast {
+	/*if l.Last() != gotLast {
 		t.Error("last in line, want:", l.Last(), " got:", gotLast)
-	}
+	}*/
 	l.queuing()
 	if l.len() != 0 {
 		t.Error("after deletion one element size must be 0, got: ", l.len())
@@ -36,13 +34,11 @@ func Test_list_with_one_item(t *testing.T) {
 	if l.len() != 3 {
 		t.Error("after adding 3 element size must be 3, got: ", l.len())
 	}
-	gotFirst := l.first
-	gotLast := l.last
-	if l.First() != gotFirst {
-		t.Error("first in line, want:", l.First(), " got:", gotFirst)
+	if l.First() != 0 {
+		t.Error("first in line, want:", 0, " got:", l.First())
 	}
-	if l.Last() != gotLast {
-		t.Error("last in line, want:", l.Last(), " got:", gotLast)
+	if l.Last() != 2 {
+		t.Error("last in line, want:", 2, " got:", l.Last())
 	}
 	l.queuing()
 	if l.len() != 2 {

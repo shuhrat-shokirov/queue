@@ -13,12 +13,12 @@ type listNode struct {
 	//priority int
 }
 
-func (receiver *list) First() *listNode {
-	return receiver.first
+func (receiver *list) First() interface{} {
+	return receiver.first.value
 }
 
-func (receiver *list) Last() *listNode {
-	return receiver.last
+func (receiver *list) Last() interface{} {
+	return receiver.last.value
 }
 
 func (receiver *list) Len() int {
