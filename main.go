@@ -1,31 +1,31 @@
 package main
 
-type list struct {
-	first *listNode
-	last  *listNode
+type queue struct {
+	first *queueNode
+	last  *queueNode
 	size  int
 }
 
-type listNode struct {
-	next  *listNode
-	prev  *listNode
+type queueNode struct {
+	next  *queueNode
+	prev  *queueNode
 	value interface{}
 	//priority int
 }
 
-func (receiver *list) First() interface{} {
+func (receiver *queue) First() interface{} {
 	return receiver.first.value
 }
 
-func (receiver *list) Last() interface{} {
+func (receiver *queue) Last() interface{} {
 	return receiver.last.value
 }
 
-func (receiver *list) Len() int {
+func (receiver *queue) Len() int {
 	return receiver.len()
 }
 
-func (receiver *list) queuing() {
+func (receiver *queue) queuing() {
 	if receiver.len() == 0 {
 		return
 	}
@@ -39,13 +39,13 @@ func (receiver *list) queuing() {
 	receiver.first.prev = nil
 	receiver.size--
 }
-func (receiver *list) len() int {
+func (receiver *queue) len() int {
 	return receiver.size
 }
 
-func (receiver *list) addLast(elementPtr interface{}) {
+func (receiver *queue) addLast(elementPtr interface{}) {
 	if receiver.len() == 0 {
-		current := &listNode{
+		current := &queueNode{
 			next:  nil,
 			prev:  nil,
 			value: elementPtr,
@@ -56,7 +56,7 @@ func (receiver *list) addLast(elementPtr interface{}) {
 		return
 	}
 	prev := receiver.last
-	current := &listNode{
+	current := &queueNode{
 		next:  nil,
 		prev:  prev,
 		value: elementPtr,
