@@ -21,15 +21,12 @@ func (receiver *queue) Last() interface{} {
 	return receiver.last.value
 }
 
-func (receiver *queue) Len() int {
-	return receiver.len()
-}
 
 func (receiver *queue) queuing() {
-	if receiver.len() == 0 {
+	if receiver.size == 0 {
 		return
 	}
-	if receiver.len() == 1 {
+	if receiver.size == 1 {
 		receiver.first = nil
 		receiver.last = nil
 		receiver.size--
@@ -39,12 +36,9 @@ func (receiver *queue) queuing() {
 	receiver.first.prev = nil
 	receiver.size--
 }
-func (receiver *queue) len() int {
-	return receiver.size
-}
 
 func (receiver *queue) addLast(elementPtr interface{}) {
-	if receiver.len() == 0 {
+	if receiver.size == 0 {
 		current := &queueNode{
 			next:  nil,
 			prev:  nil,
