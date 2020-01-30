@@ -22,19 +22,22 @@ func (receiver *queue) Last() interface{} {
 }
 
 
-func (receiver *queue) queuing() {
+func (receiver *queue) queuing() interface{} {
 	if receiver.size == 0 {
-		return
+		return -1
 	}
 	if receiver.size == 1 {
+		increment := receiver.first.value
 		receiver.first = nil
 		receiver.last = nil
 		receiver.size--
-		return
+		return increment
 	}
+	increment := receiver.first.value
 	receiver.first = receiver.first.next
 	receiver.first.prev = nil
 	receiver.size--
+	return increment
 }
 
 func (receiver *queue) addLast(elementPtr interface{}) {
